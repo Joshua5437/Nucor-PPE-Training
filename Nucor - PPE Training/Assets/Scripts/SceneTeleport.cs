@@ -41,7 +41,7 @@ public class SceneTeleport : MonoBehaviour
         }
         if(wait) { 
             yield return new WaitWhile(() => TransitionAudio.isPlaying);
-            startingObject.active = true;
+            startingObject.SetActive(true);
         }
         
     }

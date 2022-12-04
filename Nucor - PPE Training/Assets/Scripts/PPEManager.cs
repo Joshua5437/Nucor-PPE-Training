@@ -1,7 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-
 public class PPEManager : MonoBehaviour
 {
     private int counter = 0;
@@ -15,8 +12,8 @@ public class PPEManager : MonoBehaviour
         }
 
         if(counter == CorrectPPE.Length) {  // Switches user to next scene. 
-            NextScene.active = true;
-            CurrentScene.active = false;
+            NextScene.SetActive(true);
+            CurrentScene.SetActive(false);
 
             if(NextScene.name == "Hazard Scenario 1") {
                 NextScene.GetComponent<SceneTeleport>().TeleportUser();
