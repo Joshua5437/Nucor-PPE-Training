@@ -1,0 +1,54 @@
+{
+    "name": "MyCustomInputs",
+    "maps": [
+        {
+            "name": "Custom",
+            "id": "b2cece45-f224-4874-a881-fc0ecd0e3faa",
+            "actions": [
+                {
+                    "name": "Toggle",
+                    "type": "Button",
+                    "id": "b62eda5f-e0fd-4687-9d00-82d65b291a33",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Active",
+                    "type": "Button",
+                    "id": "5150501c-b340-4393-897f-3e55f50fae5d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "29a941a3-3691-4a4e-845b-ace9a47bacc0",
+                    "path": "<ViveController>/menu",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5641f5a-ed14-47a4-bd90-aa7da2b010fe",
+                    "path": "<ViveController>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Active",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
