@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class TitleScreenFade : MonoBehaviour
 {
     public float Duration = 1.0f;
-    public UnityEngine.Video.VideoPlayer IntroductionClip;
+    public GameObject NextActionCall;
     public RawImage TitleImage;
 
     private void Awake()
@@ -25,6 +26,6 @@ public class TitleScreenFade : MonoBehaviour
             canvGroup.alpha = Mathf.Lerp(start, end, (counter / Duration));
             yield return null;
         }
-        IntroductionClip.Play();   // Plays after the title sequence has ended.
+        NextActionCall.GetComponent<VRTutorial>().TriggerPress();
     }
 }

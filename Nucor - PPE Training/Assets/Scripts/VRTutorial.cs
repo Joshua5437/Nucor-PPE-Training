@@ -9,27 +9,29 @@ public class VRTutorial : MonoBehaviour
     public GameObject SphereInteractable;
     public InputActionReference toggleReference = null;
 
-    private Button Next;
-    private TextMeshProUGUI Text;
-    private int ToggleCounter = 0;
-    private Image ControllerImage;
-    private GameObject Interactable;
-    private AudioSource Trigger, MenuEnter, MenuExit, Select;
+    // public Button Next;
+    public TextMeshProUGUI Text;
+    public int ToggleCounter = 0;
+    public Image ControllerImage;
+    public AudioSource Trigger, MenuEnter, MenuExit, Select;
 
     private void Awake() { toggleReference.action.started += Toggle; }
-    private void OnDestroy() { toggleReference.action.started -= Toggle; }
+    private void OnDestroy() {
+        toggleReference.action.started -= Toggle;
+        // Next.onClick.RemoveListener(MenuPress);
+    }
 
     void Start()
     {
-        Next = GameObject.Find("Next Button").GetComponent<Button>();
-        Trigger = GameObject.Find("Trigger").GetComponent<AudioSource>();
-        MenuEnter = GameObject.Find("MenuEnter").GetComponent<AudioSource>();
-        MenuExit = GameObject.Find("MenuExit").GetComponent<AudioSource>();
-        Select = GameObject.Find("Select").GetComponent<AudioSource>();
-        Text = GameObject.Find("Instruction Text (TMP)").GetComponent<TextMeshProUGUI>();
-        ControllerImage = GameObject.Find("Controller Image").GetComponent<Image>();
-
-        Next.onClick.AddListener(MenuPress);
+        //Next = GameObject.Find("Next Button").GetComponent<Button>();
+        //Trigger = GameObject.Find("Trigger").GetComponent<AudioSource>();
+        //MenuEnter = GameObject.Find("MenuEnter").GetComponent<AudioSource>();
+        //MenuExit = GameObject.Find("MenuExit").GetComponent<AudioSource>();
+        //Select = GameObject.Find("Select").GetComponent<AudioSource>();
+        //Text = GameObject.Find("Instruction Text (TMP)").GetComponent<TextMeshProUGUI>();
+        //ControllerImage = GameObject.Find("Controller Image").GetComponent<Image>();
+        
+        // Next.onClick.AddListener(MenuPress);
     }
 
     public void TriggerPress() {
@@ -38,7 +40,7 @@ public class VRTutorial : MonoBehaviour
         Text.GetComponent<TextMeshProUGUI>().text = "Point to the 'Next' button and use the 'Trigger' to continue.";
     }
 
-    private void MenuPress() {
+    public void MenuPress() {
         Trigger.Stop(); // Stops audio if it is still playing.
 
         MenuEnter.Play();
@@ -51,7 +53,7 @@ public class VRTutorial : MonoBehaviour
         {
             Select.Play();
             MenuExit.Stop();
-            Interactable.SetActive(true);
+            SphereInteractable.SetActive(true);
         }
         if (ToggleCounter == 0)
         {
