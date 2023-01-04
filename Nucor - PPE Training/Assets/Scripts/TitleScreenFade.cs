@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 public class TitleScreenFade : MonoBehaviour
 {
     public float Duration = 1.0f;
-    public GameObject NextActionCall;
+    public AudioSource NextActionCall;
     public RawImage TitleImage;
 
     private void Awake()
@@ -26,6 +26,6 @@ public class TitleScreenFade : MonoBehaviour
             canvGroup.alpha = Mathf.Lerp(start, end, (counter / Duration));
             yield return null;
         }
-        NextActionCall.GetComponent<VRTutorial>().TriggerPress();
+        NextActionCall.Play();
     }
 }
